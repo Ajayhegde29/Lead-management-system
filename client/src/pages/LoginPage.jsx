@@ -38,22 +38,23 @@ export default function LoginPage() {
   }
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-slate-100 px-4 py-10">
-      <section className="w-full max-w-md rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
-        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-700">LeadFlow</p>
-        <h1 className="mt-3 text-3xl font-bold tracking-tight text-slate-950">Welcome back</h1>
-        <p className="mt-2 text-sm text-slate-600">Sign in to manage your sales leads and follow-ups.</p>
+    <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-slate-950 px-4 py-10">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(59,130,246,0.38),_transparent_35rem),radial-gradient(circle_at_bottom_left,_rgba(99,102,241,0.3),_transparent_28rem)]" />
+      <section className="relative w-full max-w-md rounded-3xl border border-white/15 bg-white p-7 shadow-2xl shadow-black/30 sm:p-9">
+        <div className="flex items-center gap-3"><span className="grid h-11 w-11 place-items-center rounded-2xl bg-blue-700 text-xl text-white shadow-lg shadow-blue-200">↗</span><div><p className="text-sm font-bold uppercase tracking-[0.18em] text-blue-700">LeadFlow</p><p className="mt-0.5 text-xs font-medium text-slate-500">Lead management workspace</p></div></div>
+        <h1 className="mt-7 text-3xl font-bold tracking-tight text-slate-950">Welcome back</h1>
+        <p className="mt-2 text-sm leading-6 text-slate-600">Sign in to manage your sales leads, pipeline, and follow-ups.</p>
         <form className="mt-7 space-y-5" onSubmit={handleSubmit} noValidate>
           {error && <StatusMessage tone="error">{error}</StatusMessage>}
-          <label className="block text-sm font-medium text-slate-700">
+          <label className="field-label">
             Username
-            <input autoComplete="username" className="mt-1.5 block w-full rounded-md border border-slate-300 px-3 py-2.5 text-slate-950 outline-none transition focus:border-blue-600 focus:ring-2 focus:ring-blue-100" disabled={isSubmitting} name="username" onChange={updateField} value={credentials.username} />
+            <input autoComplete="username" className="field-control" disabled={isSubmitting} name="username" onChange={updateField} placeholder="Enter your username" value={credentials.username} />
           </label>
-          <label className="block text-sm font-medium text-slate-700">
+          <label className="field-label">
             Password
-            <input autoComplete="current-password" className="mt-1.5 block w-full rounded-md border border-slate-300 px-3 py-2.5 text-slate-950 outline-none transition focus:border-blue-600 focus:ring-2 focus:ring-blue-100" disabled={isSubmitting} name="password" onChange={updateField} type="password" value={credentials.password} />
+            <input autoComplete="current-password" className="field-control" disabled={isSubmitting} name="password" onChange={updateField} placeholder="Enter your password" type="password" value={credentials.password} />
           </label>
-          <button className="flex w-full min-h-11 items-center justify-center rounded-md bg-blue-700 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-800 disabled:cursor-not-allowed disabled:opacity-60" disabled={isSubmitting} type="submit">
+          <button className="primary-button flex w-full" disabled={isSubmitting} type="submit">
             {isSubmitting ? <LoadingIndicator label="Signing in…" /> : 'Sign in'}
           </button>
         </form>

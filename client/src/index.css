@@ -4,8 +4,28 @@
 
 body {
   @apply bg-slate-50 text-slate-900 antialiased;
+  background-image: radial-gradient(circle at top right, rgb(219 234 254 / 0.75), transparent 30rem), radial-gradient(circle at 0% 60%, rgb(238 242 255 / 0.65), transparent 28rem);
 }
 
 #root {
   min-height: 100vh;
+}
+
+@layer components {
+  .app-shell { @apply min-h-screen overflow-x-hidden; }
+  .page-title { @apply text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl; }
+  .page-subtitle { @apply mt-2 max-w-2xl text-sm leading-6 text-slate-600 sm:text-base; }
+  .surface-card { @apply rounded-2xl border border-slate-200/80 bg-white/95 shadow-[0_12px_32px_-20px_rgba(15,23,42,0.32)] backdrop-blur; }
+  .section-label { @apply text-xs font-bold uppercase tracking-[0.14em] text-slate-500; }
+  .field-label { @apply block text-sm font-semibold text-slate-700; }
+  .field-control { @apply mt-1.5 block w-full rounded-xl border border-slate-200 bg-white px-3.5 py-3 text-sm text-slate-950 shadow-sm outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-4 focus:ring-blue-100; }
+  .primary-button { @apply inline-flex min-h-11 items-center justify-center rounded-xl bg-blue-700 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-blue-800 hover:shadow-md focus:outline-none focus:ring-4 focus:ring-blue-200 disabled:cursor-not-allowed disabled:opacity-60; }
+  .secondary-button { @apply inline-flex min-h-11 items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-slate-300 hover:bg-slate-50; }
+  .danger-button { @apply inline-flex min-h-11 items-center justify-center rounded-xl bg-rose-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-rose-700; }
+  .status-new { @apply bg-blue-50 text-blue-700 ring-1 ring-blue-100; }
+  .status-contacted { @apply bg-sky-50 text-sky-700 ring-1 ring-sky-100; }
+  .status-proposal { @apply bg-violet-50 text-violet-700 ring-1 ring-violet-100; }
+  .status-negotiation { @apply bg-amber-50 text-amber-700 ring-1 ring-amber-100; }
+  .status-won { @apply bg-emerald-50 text-emerald-700 ring-1 ring-emerald-100; }
+  .status-lost { @apply bg-rose-50 text-rose-700 ring-1 ring-rose-100; }
 }
