@@ -12,4 +12,10 @@ module.exports = {
     'no-console': 'off',
     'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
   },
+  overrides: [
+    {
+      files: ['tests/**/*.js'],
+      env: { jest: true },
+    },
+  ],
 };
