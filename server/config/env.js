@@ -7,6 +7,8 @@ module.exports = {
   mongoUri: process.env.MONGODB_URI || '',
   jwtSecret: process.env.JWT_SECRET || '',
   jwtExpiresIn: process.env.JWT_EXPIRES_IN || '8h',
+  bootstrapAdminUsername: process.env.BOOTSTRAP_ADMIN_USERNAME || '',
+  bootstrapAdminPassword: process.env.BOOTSTRAP_ADMIN_PASSWORD || '',
   clientUrls: (process.env.CLIENT_URL || 'http://localhost:5173')
     .split(',')
     .map((url) => url.trim())

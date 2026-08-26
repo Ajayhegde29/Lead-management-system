@@ -18,5 +18,9 @@ services:
         generateValue: true
       - key: JWT_EXPIRES_IN
         value: 8h
+      - key: BOOTSTRAP_ADMIN_USERNAME
+        sync: false
+      - key: BOOTSTRAP_ADMIN_PASSWORD
+        sync: false
       - key: CLIENT_URL
         sync: false

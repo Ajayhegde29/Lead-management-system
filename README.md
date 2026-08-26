@@ -79,6 +79,8 @@ npm run seed:admin
 npm run dev
 ```
 
+For a first production deployment without shell access, set `BOOTSTRAP_ADMIN_USERNAME` and `BOOTSTRAP_ADMIN_PASSWORD` in the host environment. The server creates that admin only if it does not already exist; remove both variables after it has been created.
+
 API health check: `http://localhost:5000/api/health`.
 
 ### Frontend

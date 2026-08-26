@@ -25,7 +25,7 @@ const createLeadPayload = (overrides = {}) => ({
 beforeAll(async () => {
   process.env.JWT_SECRET = 'test-secret-that-is-long-enough-for-jwt';
   process.env.JWT_EXPIRES_IN = '1h';
-  await mongoose.connect('mongodb://127.0.0.1:27017/lead-management-system-jest-test');
+  await mongoose.connect(`mongodb://127.0.0.1:27017/lead-management-system-jest-test-${process.pid}`);
   await Promise.all([User.deleteMany({}), Lead.deleteMany({}), FollowUp.deleteMany({})]);
   admin = await User.create({ username: 'admin', password: 'Admin@123', role: 'admin' });
   const login = await request(app).post('/api/auth/login').send({ username: 'admin', password: 'Admin@123' });
