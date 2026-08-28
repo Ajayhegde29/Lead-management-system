@@ -154,6 +154,7 @@ npm run build
 ## Deployment
 
 - Deploy `client` to Vercel and set `VITE_API_URL` to the public API URL ending in `/api`.
+- `client/vercel.json` rewrites SPA routes to `index.html`, so direct links and browser refreshes work on protected React routes.
 - Deploy `server` to Render/Railway and configure `MONGODB_URI`, `JWT_SECRET`, `JWT_EXPIRES_IN`, `CLIENT_URL`, `PORT`, and `NODE_ENV=production`.
 - Use MongoDB Atlas for production, allow the backend host’s network access, and set `CLIENT_URL` to the deployed frontend origin.
 - Do not commit `.env`, `node_modules`, build artifacts, or production secrets.

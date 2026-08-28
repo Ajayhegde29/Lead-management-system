@@ -61,5 +61,24 @@ export default function LeadEditorPage() {
   }
 
   if (isLoading) return <LoadingIndicator label="Loading lead…" />;
-  return <section className="max-w-3xl"><Link className="inline-flex items-center gap-2 text-sm font-bold text-blue-700 hover:text-blue-800" to="/leads">← Back to leads</Link><div className="mt-5"><p className="section-label text-blue-700">{isEditing ? 'Update opportunity' : 'New opportunity'}</p><h1 className="page-title mt-2">{isEditing ? 'Keep the lead moving.' : 'Add a new lead.'}</h1><p className="page-subtitle">Capture the essentials now. You can update details and follow-ups anytime.</p></div><div className="surface-card mt-7 p-5 sm:p-8">{error && <div className="mb-5"><StatusMessage tone="error">{error}</StatusMessage></div>}<LeadForm fieldErrors={fieldErrors} form={form} isSubmitting={isSubmitting} onChange={updateField} onSubmit={handleSubmit} submitLabel={isEditing ? 'Save changes' : 'Create lead'} user={user} /></div></section>;
+  return (
+    <section className="max-w-7xl">
+      <Link className="inline-flex items-center gap-2 text-sm font-bold text-blue-700 hover:text-blue-800" to="/leads">← Back to leads</Link>
+      <div className="mt-5"><p className="section-label text-blue-700">{isEditing ? 'Update opportunity' : 'New opportunity'}</p><h1 className="page-title mt-2">{isEditing ? 'Keep the lead moving.' : 'Add a new lead.'}</h1><p className="page-subtitle">Capture the essentials now. You can update details and follow-ups anytime.</p></div>
+      <div className="mt-7 grid items-start gap-6 xl:grid-cols-[minmax(0,1fr)_300px]">
+        <div className="surface-card p-5 sm:p-8">
+          <div className="mb-7 flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-5"><div><p className="text-base font-bold text-slate-950">Lead information</p><p className="mt-1 text-sm text-slate-600">Fields marked by the form are required.</p></div><span className="rounded-full bg-blue-50 px-3 py-1.5 text-xs font-bold text-blue-700">Step 1 of 1</span></div>
+          {error && <div className="mb-5"><StatusMessage tone="error">{error}</StatusMessage></div>}
+          <LeadForm fieldErrors={fieldErrors} form={form} isSubmitting={isSubmitting} onChange={updateField} onSubmit={handleSubmit} submitLabel={isEditing ? 'Save changes' : 'Create lead'} user={user} />
+        </div>
+        <aside className="surface-card p-5 xl:sticky xl:top-28">
+          <span className="grid h-10 w-10 place-items-center rounded-xl bg-blue-50 text-lg font-bold text-blue-700">✦</span>
+          <h2 className="mt-4 text-lg font-bold text-slate-950">Create a stronger lead</h2>
+          <p className="mt-2 text-sm leading-6 text-slate-600">A complete record helps the team prioritize follow-ups and forecast potential revenue.</p>
+          <ul className="mt-5 space-y-4 border-t border-slate-100 pt-5 text-sm text-slate-700"><li className="flex gap-3"><span className="font-bold text-blue-700">01</span><span>Use the prospect’s direct email and mobile number.</span></li><li className="flex gap-3"><span className="font-bold text-blue-700">02</span><span>Add an estimated value when it is known.</span></li><li className="flex gap-3"><span className="font-bold text-blue-700">03</span><span>Record first-contact details in follow-ups after saving.</span></li></ul>
+          <div className="mt-6 rounded-xl bg-slate-50 p-4"><p className="text-xs font-bold uppercase tracking-wide text-slate-500">Duplicate protection</p><p className="mt-1 text-xs leading-5 text-slate-600">Email and mobile numbers are checked before a new lead is saved.</p></div>
+        </aside>
+      </div>
+    </section>
+  );
 }
